@@ -18,6 +18,12 @@ public class Terrain {
 		this.polygons.add(p1);
 	}
 	
+	public void addPolygons(Rectangle...rectangles) {
+		for(int i = 0; i < rectangles.length; i++) {
+			this.addPolygon(rectangles[i]);
+		}
+	}
+	
 	public void setGoalPoint(Point p) {
 		this.goal = p;
 	}

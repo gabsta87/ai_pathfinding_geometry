@@ -1,3 +1,4 @@
+package launch;
 import generators.TerrainGenerator;
 import geometry.Point;
 import geometry.Terrain;
@@ -7,8 +8,12 @@ import pathSearch.RecursiveBestFirst;
 import pathSearch.tools.Path;
 import view.Painter;
 
-public class LauncherComparison {
+public class PerformanceComparisonLauncher {
 
+	/**
+	 * This launcher tests both A* and RBFS algorithms to see which one is faster and which one finds a better solution
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		Terrain t = TerrainGenerator.getTerrainV2();
 

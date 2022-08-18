@@ -1,4 +1,5 @@
-import static org.junit.Assert.assertArrayEquals;
+package launch;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -9,6 +10,11 @@ import generators.TerrainGenerator;
 import geometry.Line;
 import geometry.Terrain;
 
+/**
+ * This tester verifies that the intersections are managed correctly
+ * @author Shadow
+ *
+ */
 class TesterForIntersections {
 
 	@Test

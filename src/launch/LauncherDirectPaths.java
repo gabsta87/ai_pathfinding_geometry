@@ -1,3 +1,4 @@
+package launch;
 import java.util.List;
 
 import generators.TerrainGenerator;
@@ -9,6 +10,11 @@ import pathSearch.PathFinder;
 
 public class LauncherDirectPaths {
 
+	/**
+	 * This launcher tests if the algorithm finds all correct reachable destinations (vertices) from a given point.
+	 * A correct destination is a vertex with no obstacle between it and the starting point.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		Terrain t = TerrainGenerator.getTerrainV1();

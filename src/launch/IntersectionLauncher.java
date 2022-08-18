@@ -1,21 +1,25 @@
-import java.awt.Point;
+package launch;
 import java.util.LinkedList;
 import java.util.List;
 
 import geometry.Line;
+import geometry.Point;
 import geometry.Polygon;
+import geometry.Rectangle;
+import geometry.Terrain;
+import pathSearch.tools.Path;
 import view.Painter;
 
-public class Launcher {
+public class IntersectionLauncher {
 	
 	public static void main(String[] args) {
 		
-		List<Polygon> polygons = new LinkedList<Polygon>();
+		List<Rectangle> polygons = new LinkedList<Rectangle>();
 		
-		Polygon p0 = new Polygon(new Point(3,1),new Point(5,1),new Point(5,5),new Point(3,5));
-		Polygon p1 = new Polygon(new Point(7,4),new Point(10,4),new Point(10,7),new Point(7,7));
-		Polygon p2 = new Polygon(new Point(4,6),new Point(5,8),new Point(2,8));
-		Polygon p3 = new Polygon(new Point(2,10),new Point(7,10),new Point(7,14),new Point(2,14));
+		Rectangle p0 = new Rectangle(new Point(30,10),new Point(50,10),new Point(50,50),new Point(30,50));
+		Rectangle p1 = new Rectangle(new Point(70,40),new Point(100,40),new Point(100,70),new Point(70,70));
+		Rectangle p2 = new Rectangle(new Point(40,60),new Point(50,80),new Point(20,80));
+		Rectangle p3 = new Rectangle(new Point(20,100),new Point(70,100),new Point(70,140),new Point(20,140));
 		
 		polygons.add(p0);
 		polygons.add(p1);
@@ -24,15 +28,15 @@ public class Launcher {
 		
 		List<Line> lines = new LinkedList<Line>();
 		
-		Line v0 = new Line(1,4,8,9);
-		Line v1 = new Line(8,1,8,9);
-		Line v2 = new Line(2,2,9,9);
-		Line v3 = new Line(7,2,2,7);
-		Line v4 = new Line(1,1,3,9);
-		Line v5 = new Line(2,8,4,11);
-		Line v6 = new Line(8,11,11,8);
-		Line v7 = new Line(1,14,9,14);
-		Line v8 = new Line(0,5,4,11);
+		Line v0 = new Line(10,40,80,90);
+		Line v1 = new Line(80,10,80,90);
+		Line v2 = new Line(20,20,90,90);
+		Line v3 = new Line(70,20,20,70);
+		Line v4 = new Line(10,10,30,90);
+		Line v5 = new Line(20,80,40,110);
+		Line v6 = new Line(80,110,110,80);
+		Line v7 = new Line(10,140,90,14);
+		Line v8 = new Line(0,50,40,110);
 		
 		lines.add(v0);
 		lines.add(v1);
@@ -75,9 +79,10 @@ public class Launcher {
 			vector2Counter = 0;
 			vector1Counter++;
 		}
-		
-		Painter p = new Painter();
-		p.addLines(lines);
-		p.addPolygons(polygons);
+		Path pa = new Path(lines);
+		Terrain t = new Terrain();
+		t.addPolygons(polygons);
+
+		Painter.printSolution(t, pa, "Intersection tests");
 	}
 }
